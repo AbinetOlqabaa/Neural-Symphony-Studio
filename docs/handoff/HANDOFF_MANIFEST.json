@@ -1,0 +1,57 @@
+{
+  "projectName": "Neural Symphony Studio",
+  "schemaVersion": "2.1.0",
+  "updatedAt": "2026-11-26T09:56:00.000Z",
+  "completedPhases": [
+    "Phase 0",
+    "Phase 1",
+    "Phase 2",
+    "Integration Hardening 02",
+    "Prompt 03 — Phase A (AI Provider Orchestration & Secure Settings)",
+    "Prompt 03 — Phase B (Production Development Foundation, Document Manager, Tigrigna & Continuity)",
+    "Prompt 04 — Phase C (Visual Pre-Production Studio, Storyboard, Shot List, Schedule & Cross-Bible Continuity)"
+  ],
+  "implementedFoundationPhases": [
+    "Phase 3",
+    "Phase 4",
+    "Phase 5",
+    "Phase 6",
+    "Phase 7",
+    "Phase 8",
+    "Phase 9",
+    "Phase 10",
+    "Phase 11"
+  ],
+  "pendingPhases": [
+    "Live External ComfyUI / Qwen2.5-VL / 3P LLM & Flux/SDXL Storyboard Still Endpoint Verification",
+    "Verified Tigrigna (ትግርኛ) Voice / TTS Engine Integration"
+  ],
+  "verifiedInEnvironment": [
+    "IndexedDB persistence across page reload (verified in headless Chromium on Schedule task creation)",
+    "Schema v1 / v2.0.0 -> v2.1.0 backward-compatible migration and secret-free ZIP export/import",
+    "All 8 Phase C Visual Pre-Production workspaces + 11 ProductionDocument generators & XSS-safe exports",
+    "Expanded 8-rule Continuity engine with critical/warning/informational levels and intentional explanation tracking",
+    "Tigrigna Unicode NFC normalization, LRC parsing, and SRT export",
+    "Mocked OpenAI provider probe, fallback routing, and secret isolation boundaries",
+    "Mocked ComfyUI REST + upload-image + history + view E2E flow",
+    "Mocked Qwen2.5-VL endpoint probe & analysis",
+    "Real local FFmpeg MP4 assembly with Unicode SRT burn-in"
+  ],
+  "awaitingExternalVerification": [
+    "Physical external ComfyUI GPU execution (LTX-Video 0.9.5 / Wan 2.1)",
+    "Live external Qwen2.5-VL GPU inference host",
+    "Live OpenAI, Anthropic, Ollama, and custom OpenAI-compatible inference endpoints",
+    "Live Flux/SDXL still image rendering endpoint for AI Storyboard mode",
+    "Live Tigrigna TTS/voice generation compatibility"
+  ],
+  "entryPoints": {
+    "server": "server.ts",
+    "apiFactory": "server/app.ts",
+    "client": "src/main.tsx",
+    "store": "src/hooks/useStudioStore.ts",
+    "types": "src/types/studio.ts"
+  },
+  "unitTestCommand": "npx --yes tsx --test src/modules/**/*.test.ts server/services/*.test.ts",
+  "lintCommand": "npm run lint",
+  "buildCommand": "npm run build"
+}

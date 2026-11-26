@@ -1,0 +1,6 @@
+{
+  "name": "Neural Symphony Studio",
+  "description": "AI-powered image-to-video music video production platform built on modular ComfyUI workflows, character continuity, and music timeline synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

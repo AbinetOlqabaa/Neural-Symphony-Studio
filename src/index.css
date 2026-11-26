@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ns-bg: #f4f6f9;
+  --ns-surface: #ffffff;
+  --ns-surface-elevated: #f8fafc;
+  --ns-surface-inset: #eef2f7;
+  --ns-border: #dbe2ec;
+  --ns-border-strong: #c2ccd9;
+  --ns-text: #0f172a;
+  --ns-text-muted: #475569;
+  --ns-text-subtle: #64748b;
+  --ns-accent: #6d4aff;
+  --ns-accent-hover: #5b38eb;
+  --ns-accent-blue: #0284c7;
+  --ns-success: #16a34a;
+  --ns-warning: #d97706;
+  --ns-danger: #dc2626;
+}
+
+.dark {
+  --ns-bg: #0b0d12;
+  --ns-surface: #12161f;
+  --ns-surface-elevated: #181e2a;
+  --ns-surface-inset: #0e1118;
+  --ns-border: #232a3b;
+  --ns-border-strong: #323c54;
+  --ns-text: #eef2f8;
+  --ns-text-muted: #9aa7bd;
+  --ns-text-subtle: #6f7c94;
+  --ns-accent: #7c5cff;
+  --ns-accent-hover: #8f74ff;
+  --ns-accent-blue: #38bdf8;
+  --ns-success: #22c55e;
+  --ns-warning: #f59e0b;
+  --ns-danger: #ef4444;
+}
+
+@layer base {
+  html {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--ns-accent-blue);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

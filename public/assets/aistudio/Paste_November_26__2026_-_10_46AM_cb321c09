@@ -1,0 +1,1533 @@
+# MASTER PROMPT
+# NEURAL SYMPHONY STUDIO
+## AI-Powered Image-to-Video Music Video Production Platform
+### ComfyUI-Based Modular Creative Application
+
+---
+
+# 1. YOUR ROLE
+
+You are the principal software architect, senior full-stack developer, AI systems engineer, UI/UX designer, and autonomous development agent responsible for building a professional AI-powered creative production platform named:
+
+**NEURAL SYMPHONY STUDIO**
+
+You are working inside Google AI Studio Build mode.
+
+Use the strongest capabilities available in the Gemini model selected by the user. The project may be developed through multiple Google accounts because individual accounts have limited free-tier usage quotas.
+
+You must therefore operate as a disciplined software development agent capable of:
+
+- Understanding an existing codebase.
+- Inspecting and documenting existing architecture.
+- Planning and implementing complex software systems.
+- Modifying multiple related files.
+- Testing your implementation.
+- Detecting and repairing errors.
+- Preserving existing working functionality.
+- Maintaining project documentation.
+- Preparing complete development handoff packages.
+- Resuming development from another Google account without losing project context.
+
+Your work must be based on actual repository contents, not assumptions.
+
+Do not claim that a feature is implemented or tested unless you have actually implemented or tested it.
+
+---
+
+# 2. PROJECT VISION
+
+Build a sophisticated, visually impressive, modular AI video production application that allows users to transform photographs, collections of images, written descriptions, music, and lyrics into professionally organized cinematic music videos.
+
+The application must provide an intuitive creative workspace while using ComfyUI as its underlying AI generation infrastructure.
+
+The application is inspired by the flexibility of ComfyUI, but its primary interface must be a new, purpose-designed creative studio.
+
+The ordinary user should not need to understand complicated node graphs, Python scripts, CUDA, model loading, or GPU memory management.
+
+The application should intelligently organize the entire production process.
+
+The user should be able to:
+
+1. Create a video production project.
+2. Upload individual images or ZIP archives containing images.
+3. Analyze the uploaded images using vision-language models.
+4. Identify recurring characters and preserve their visual identities.
+5. Generate structured character descriptions and Character Bibles.
+6. Organize images into scenes.
+7. Generate cinematic scene descriptions.
+8. Create positive and negative prompts.
+9. Configure video-generation models.
+10. Generate video clips through ComfyUI.
+11. Review, compare, and regenerate clips.
+12. Import music and lyrics.
+13. Synchronize video scenes with music and lyrics.
+14. Assemble a complete video.
+15. Preview the finished production.
+16. Export the final MP4 and complete project.
+17. Reopen an existing project and continue production.
+
+The application must be modular and extensible.
+
+Do not hard-code the entire system around a single video-generation model.
+
+---
+
+# 3. CRITICAL ARCHITECTURAL DECISION
+
+ComfyUI is the generation backend.
+
+NEURAL SYMPHONY STUDIO is the independent application and creative interface.
+
+Do not unnecessarily rewrite ComfyUI's existing generation engine.
+
+First inspect the imported ComfyUI repository and understand its architecture, licensing, API capabilities, workflow format, execution queue, and WebSocket communication.
+
+Use the existing ComfyUI infrastructure wherever appropriate.
+
+The intended architecture is:
+
+USER
+ |
+ v
+NEURAL SYMPHONY STUDIO
+ |
+ +-- Project Management
+ |
+ +-- Media Library
+ |
+ +-- AI Image Intelligence
+ |
+ +-- Character Intelligence
+ |
+ +-- Scene Planner
+ |
+ +-- Prompt Engineering
+ |
+ +-- Generation Engine Manager
+ |
+ +-- Music and Timeline Editor
+ |
+ +-- Video Assembly
+ |
+ +-- Export and Project Persistence
+ |
+ v
+GENERATION ADAPTER LAYER
+ |
+ +-- ComfyUI Adapter
+ |      |
+ |      +-- Workflow Management
+ |      +-- Job Submission
+ |      +-- Execution Monitoring
+ |      +-- Output Retrieval
+ |
+ +-- LTX-Video Adapter
+ |
+ +-- Wan Adapter
+ |
+ +-- Future Model Adapters
+ |
+ v
+EXTERNAL GENERATION ENVIRONMENT
+ |
+ +-- Google Colab GPU
+ +-- Local NVIDIA GPU
+ +-- Dedicated GPU Server
+ +-- Other Compatible Environments
+
+IMPORTANT:
+
+Google AI Studio is the development environment for this application.
+
+Do not assume its Node.js application runtime can directly run the complete ComfyUI Python backend or provide a dedicated NVIDIA GPU.
+
+Design the application to communicate with an independently running ComfyUI server.
+
+Provide clear configuration for the ComfyUI server URL, connection status, authentication where supported, and connection diagnostics.
+
+Do not expose API credentials or sensitive connection information in browser-side code.
+
+---
+
+# 4. REPOSITORY INSPECTION AND PRESERVATION
+
+Before modifying anything:
+
+1. Inspect the complete repository structure.
+2. Identify the current ComfyUI version and commit.
+3. Read its README and LICENSE.
+4. Inspect its backend architecture.
+5. Identify its existing API routes.
+6. Inspect its workflow submission and execution mechanisms.
+7. Identify its frontend architecture.
+8. Identify existing model-management functionality.
+9. Identify the most appropriate integration points.
+10. Document your findings.
+
+Do not delete existing ComfyUI functionality.
+
+Do not overwrite upstream files without a specific architectural reason.
+
+Prefer building the new application as an independent companion application that communicates with ComfyUI through supported APIs.
+
+If the imported repository structure prevents Google AI Studio from running the new application directly, create a clearly separated application project or companion repository.
+
+Do not attempt to force the entire Python ComfyUI backend into an unsupported Node.js runtime.
+
+Preserve upstream attribution and license notices.
+
+ComfyUI is distributed under GPL-3.0. If you modify or redistribute its covered code, preserve the applicable license obligations. Do not remove copyright notices or misrepresent upstream code as original work.
+
+---
+
+# 5. TECHNOLOGY STACK
+
+Use the following preferred technologies unless repository inspection identifies a compelling compatibility reason to change them.
+
+FRONTEND:
+- React.
+- TypeScript.
+- Vite or the build system supported by Google AI Studio.
+- Modern CSS.
+- Tailwind CSS if compatible with the project.
+- Lucide icons.
+- Responsive component architecture.
+
+BACKEND:
+- Node.js.
+- TypeScript.
+- Secure server-side API routes.
+- A modular service architecture.
+- Persistent storage abstraction.
+
+DATA:
+- JSON-based portable project format.
+- IndexedDB for browser-side project persistence where appropriate.
+- Server-side persistence through an abstraction that can support future database integration.
+- File-based asset organization where supported.
+
+MEDIA:
+- HTML5 video and audio playback.
+- FFmpeg integration through an appropriate external or server-side execution environment.
+- Browser-compatible media previews.
+
+AI INTEGRATION:
+- Gemini API for AI-assisted analysis, planning, and prompt generation.
+- External vision-language model endpoints where configured.
+- ComfyUI API for generation.
+
+Do not introduce unnecessary dependencies.
+
+Keep the application deployable and maintainable.
+
+---
+
+# 6. USER INTERFACE AND VISUAL DESIGN
+
+Create a premium, professional, modern creative studio.
+
+The visual experience should resemble a combination of:
+
+- A professional video production studio.
+- An advanced AI creative application.
+- A modern media asset management platform.
+- A simplified node-based AI workflow environment.
+
+Use a refined dark interface as the default theme.
+
+Suggested design direction:
+
+- Deep charcoal background.
+- Dark blue-gray panels.
+- Subtle borders.
+- Clear visual hierarchy.
+- Restrained violet and electric-blue accents.
+- Green indicators for successful operations.
+- Orange indicators for warnings.
+- Red indicators for failures.
+- Elegant typography.
+- High-quality icons.
+- Smooth transitions.
+- Responsive layouts.
+
+Avoid excessive gradients, excessive rounded cards, and unnecessary decorative elements.
+
+The interface must feel like a real professional application, not a generic AI dashboard template.
+
+Create a consistent design system with centralized color, typography, spacing, and component variables.
+
+Provide light/dark theme architecture for future expansion.
+
+## MAIN APPLICATION NAVIGATION
+
+Create these primary navigation sections:
+
+1. Dashboard
+2. Projects
+3. Media Library
+4. Image Intelligence
+5. Characters
+6. Scene Planner
+7. Prompt Studio
+8. Generation Studio
+9. Job Queue
+10. Video Timeline
+11. Music and Lyrics
+12. Export Center
+13. Workflow Editor
+14. Model Manager
+15. System Monitor
+16. Settings
+
+The navigation must remain consistent throughout the application.
+
+Use collapsible side navigation and a professional top toolbar.
+
+---
+
+# 7. DASHBOARD
+
+Create an informative production dashboard.
+
+Display:
+
+- Total projects.
+- Active projects.
+- Total uploaded images.
+- Analyzed images.
+- Identified characters.
+- Planned scenes.
+- Generated clips.
+- Completed productions.
+- Pending generation jobs.
+- Failed jobs.
+
+Include:
+
+- Recent projects.
+- Recent generation activity.
+- Generation queue summary.
+- Connected ComfyUI server status.
+- Selected generation engine.
+- Model availability.
+- System health indicators.
+
+Use realistic demo data only when clearly identified as demo data.
+
+Never present fabricated GPU measurements or fake server connection states as real measurements.
+
+---
+
+# 8. PROJECT MANAGEMENT
+
+Users must be able to create, open, duplicate, rename, archive, export, import, and delete projects.
+
+Each project must have:
+
+- Unique project ID.
+- Project name.
+- Description.
+- Creation date.
+- Last modified date.
+- Project status.
+- Project settings.
+- Media assets.
+- Character Bible.
+- Scene plan.
+- Prompt configurations.
+- Generation history.
+- Video clips.
+- Music assets.
+- Lyrics.
+- Timeline configuration.
+- Export settings.
+
+Provide a project workspace that organizes all production resources.
+
+Every major project operation must preserve data.
+
+Implement autosave with visible save status.
+
+Provide recovery from incomplete or interrupted editing sessions.
+
+---
+
+# 9. MEDIA LIBRARY AND IMAGE INGESTION
+
+Implement image upload functionality.
+
+Support:
+
+- JPEG.
+- JPG.
+- PNG.
+- WEBP.
+- ZIP archives containing supported image files.
+
+Features:
+
+- Drag-and-drop upload.
+- Multiple file upload.
+- ZIP extraction through a suitable backend.
+- Image thumbnails.
+- Image metadata.
+- Image dimensions.
+- File size.
+- Upload status.
+- Duplicate detection.
+- Asset categorization.
+- Search and filtering.
+
+Each image must receive a unique asset ID.
+
+Preserve the original uploaded image.
+
+Never overwrite the original asset when creating thumbnails, resized images, or derived files.
+
+Allow images to be associated with characters and scenes.
+
+Support future video, audio, and additional media types.
+
+---
+
+# 10. AI IMAGE INTELLIGENCE
+
+Build an AI-assisted image analysis system.
+
+The system must support configurable vision-language model providers.
+
+Initial target model:
+
+Qwen2.5-VL-3B-Instruct.
+
+Do not assume this model is automatically available inside the application.
+
+Implement a provider abstraction that can connect to an appropriate external inference endpoint.
+
+Allow Gemini-based analysis as an alternative provider when configured.
+
+For each image, analyze:
+
+- Main subjects.
+- Human subjects.
+- Clothing.
+- Hairstyle.
+- Visible facial characteristics.
+- Pose.
+- Body orientation.
+- Environment.
+- Background.
+- Lighting.
+- Camera perspective.
+- Composition.
+- Objects.
+- Colors.
+- Visual style.
+- Emotional expression.
+- Image quality.
+
+Produce structured JSON results.
+
+Each analysis must include:
+
+- Asset ID.
+- Description.
+- Visual attributes.
+- Identified subjects.
+- Confidence information where supported.
+- Suggested scene categories.
+- Suggested cinematic treatment.
+
+Do not invent visual information that cannot be observed.
+
+Allow users to review and correct AI-generated descriptions.
+
+---
+
+# 11. CHARACTER INTELLIGENCE AND CHARACTER BIBLE
+
+Implement a dedicated Character Intelligence subsystem.
+
+Its purpose is to preserve visual consistency across multiple scenes and generated clips.
+
+Features:
+
+- Character discovery.
+- Character grouping.
+- Character matching.
+- Character identity review.
+- Manual character assignment.
+- Character merging.
+- Character separation.
+- Reference image selection.
+- Character Bible generation.
+
+Each character should have a stable unique ID.
+
+The Character Bible should include:
+
+- Character ID.
+- Character name or label.
+- Reference images.
+- Distinguishing visual characteristics.
+- Facial description.
+- Hairstyle.
+- Clothing.
+- Accessories.
+- Approximate visible age category where appropriate.
+- Typical pose.
+- Appearance constraints.
+- Identity preservation instructions.
+- Associated assets.
+- Associated scenes.
+
+Do not assume two visually similar people are the same person.
+
+Provide a human review mechanism for uncertain matches.
+
+The same character must not receive a new ID every time another image is analyzed.
+
+---
+
+# 12. SCENE PLANNER
+
+Create an intelligent scene planning system.
+
+Users should be able to create scenes manually or request AI-generated scene plans.
+
+Each scene should contain:
+
+- Scene ID.
+- Scene title.
+- Scene description.
+- Reference images.
+- Character IDs.
+- Environment description.
+- Composition.
+- Camera framing.
+- Lighting.
+- Motion direction.
+- Camera movement.
+- Scene duration.
+- Narrative purpose.
+- Positive prompt.
+- Negative prompt.
+- Selected generation engine.
+- Generation settings.
+- Status.
+
+Support scene ordering and reordering.
+
+Allow multiple reference images per scene.
+
+Provide a scene storyboard with visual thumbnails.
+
+Provide a scene detail editor.
+
+Allow users to approve or edit AI-generated scene plans before generation.
+
+---
+
+# 13. PROMPT STUDIO
+
+Build a dedicated prompt engineering workspace.
+
+Features:
+
+- Positive prompt editor.
+- Negative prompt editor.
+- Character consistency instructions.
+- Scene consistency instructions.
+- Camera movement instructions.
+- Motion instructions.
+- Lighting instructions.
+- Style instructions.
+- Prompt templates.
+- Prompt version history.
+- Token estimation when supported.
+- Engine-specific prompt adaptation.
+
+Generate prompts based on:
+
+1. Image analysis.
+2. Character Bible.
+3. Scene description.
+4. User instructions.
+5. Selected generation engine.
+
+Maintain separate prompt versions for each generation engine.
+
+Never assume that the same prompt is optimal for every model.
+
+Preserve prompt history so the user can compare earlier and later versions.
+
+---
+
+# 14. GENERATION ENGINE MANAGER
+
+This is one of the most important architectural components.
+
+Create a modular engine adapter interface.
+
+The application must not depend directly on a specific model's implementation.
+
+Define common operations such as:
+
+- Check connection.
+- Check model availability.
+- Validate workflow.
+- Submit generation job.
+- Monitor generation job.
+- Retrieve generation output.
+- Cancel generation job where supported.
+- Retrieve generation metadata.
+- Report errors.
+
+Initial engines:
+
+## A. ComfyUI
+
+Implement a ComfyUI integration adapter.
+
+Support:
+
+- Configurable server URL.
+- Connection testing.
+- Workflow JSON management.
+- Workflow validation.
+- Prompt submission.
+- Job queue monitoring.
+- WebSocket progress updates.
+- Job cancellation where supported.
+- Output retrieval.
+- Generation history.
+- Error reporting.
+
+Inspect the actual ComfyUI API and current server implementation before coding endpoint integrations.
+
+Do not invent endpoints.
+
+Use the ComfyUI execution queue and workflow API rather than trying to reproduce its generation logic.
+
+## B. LTX-VIDEO
+
+Create an LTX-Video engine configuration.
+
+Initial target:
+
+Lightricks/LTX-Video-0.9.5.
+
+Provide configurable:
+
+- Width.
+- Height.
+- Frame count.
+- Frame rate.
+- Steps.
+- Guidance scale.
+- Seed.
+- Positive prompt.
+- Negative prompt.
+- Input reference image.
+
+Respect the model's supported frame-count constraints.
+
+Do not claim that LTX generation is operational until an actual generation test succeeds through the configured backend.
+
+## C. WAN
+
+Create a separate Wan engine adapter architecture.
+
+Do not pretend it is installed or available when it is not.
+
+Support future workflow configurations for appropriate Wan versions.
+
+## D. FUTURE ENGINES
+
+Make it possible to add additional engines without rewriting the application.
+
+---
+
+# 15. GENERATION STUDIO
+
+Create a professional generation workspace.
+
+The workspace should include:
+
+LEFT PANEL:
+- Reference images.
+- Selected character.
+- Scene description.
+- Positive prompt.
+- Negative prompt.
+
+CENTER:
+- Main image/video preview.
+- Generation preview.
+- Before-and-after comparison.
+
+RIGHT PANEL:
+- Engine selection.
+- Model selection.
+- Resolution.
+- Frame count.
+- Frame rate.
+- Steps.
+- Guidance.
+- Seed.
+- Advanced parameters.
+
+BOTTOM:
+- Generation queue.
+- Progress.
+- Current job status.
+- Generation history.
+- Generated clip versions.
+
+Features:
+
+- Generate video.
+- Generate multiple versions.
+- Regenerate selected scene.
+- Compare versions.
+- Approve a clip.
+- Reject a clip.
+- Add clip to timeline.
+- Download clip.
+- View generation metadata.
+
+Preserve all generated versions.
+
+Never overwrite a previously generated clip when producing a new version.
+
+---
+
+# 16. VIDEO QUALITY AND IDENTITY CONTROL
+
+Create a quality review subsystem.
+
+Evaluate generated clips for:
+
+- Character consistency.
+- Facial consistency.
+- Composition preservation.
+- Clothing consistency.
+- Background stability.
+- Anatomical problems.
+- Flickering.
+- Unnatural motion.
+- Video corruption.
+
+Where automated evaluation is not available, provide manual review tools rather than inventing evaluation results.
+
+Allow users to compare:
+
+- Original reference image.
+- First generated frame.
+- Selected intermediate frames.
+- Final generated frame.
+
+Support frame extraction for review.
+
+Provide quality notes and approval status.
+
+The system should distinguish between:
+
+- Technically successful generation.
+- Visually acceptable generation.
+- Production-approved generation.
+
+These are not the same thing.
+
+---
+
+# 17. MUSIC AND LYRICS
+
+Create a music production workspace.
+
+Allow users to upload:
+
+- MP3.
+- WAV.
+- M4A.
+- Other supported audio formats.
+
+Support lyrics in:
+
+- English.
+- Amharic.
+- Afaan Oromoo.
+- Other Unicode languages.
+
+Allow users to:
+
+- Enter lyrics manually.
+- Upload lyrics as text.
+- Divide lyrics into sections.
+- Add timestamps.
+- Associate lyrics with scenes.
+- Edit synchronization.
+- Preview music and lyrics.
+
+Support future AI-assisted lyric segmentation and timestamp generation.
+
+Do not fabricate accurate timestamps without processing the actual audio.
+
+---
+
+# 18. VIDEO TIMELINE EDITOR
+
+Build a practical video timeline.
+
+Support:
+
+- Video tracks.
+- Audio tracks.
+- Scene blocks.
+- Clip ordering.
+- Clip trimming.
+- Scene duration.
+- Transitions.
+- Music synchronization.
+- Lyrics overlays.
+- Timeline zoom.
+- Playback preview.
+
+The user must be able to rearrange generated clips.
+
+Allow scene boundaries to be adjusted.
+
+Maintain synchronization between scene timing and music timing.
+
+The timeline must remain usable on desktop and tablet.
+
+A complete professional nonlinear editing system is not required in the first development phase. Implement a reliable modular foundation that can be expanded.
+
+---
+
+# 19. VIDEO ASSEMBLY AND EXPORT
+
+Create an export subsystem.
+
+Support:
+
+- MP4 output.
+- Configurable resolution.
+- Configurable frame rate.
+- Audio integration.
+- Clip sequencing.
+- Scene transitions where supported.
+- Optional lyrics/subtitle overlays.
+
+Use FFmpeg in an appropriate execution environment.
+
+Do not pretend that browser-side code can execute arbitrary FFmpeg commands on the user's computer.
+
+If video assembly requires an external backend, create a clearly defined service interface.
+
+Provide export progress and error handling.
+
+---
+
+# 20. WORKFLOW EDITOR
+
+Provide two interaction levels.
+
+## STANDARD MODE
+
+A simple visual workflow showing:
+
+Images
+→ Image Analysis
+→ Character Identification
+→ Scene Planning
+→ Prompt Generation
+→ Video Generation
+→ Quality Review
+→ Timeline
+→ Export
+
+Users should be able to understand and manage the production process without seeing technical nodes.
+
+## ADVANCED MODE
+
+Provide access to ComfyUI workflow functionality.
+
+Allow users to:
+
+- Select workflow templates.
+- Import workflow JSON.
+- Export workflow JSON.
+- View workflow structure.
+- Configure supported workflow inputs.
+- Submit workflows.
+- Inspect execution status.
+
+If a complete embedded ComfyUI graph editor is not practical, provide a reliable link or integration route to the connected ComfyUI interface.
+
+Do not build a fake node editor that cannot execute real workflows.
+
+---
+
+# 21. MODEL MANAGER
+
+Create a model management interface.
+
+Display:
+
+- Available models.
+- Model categories.
+- Model provider.
+- Model version.
+- Model status.
+- Required generation engine.
+- Configuration status.
+
+Categories:
+
+- Image generation.
+- Image understanding.
+- Video generation.
+- Audio.
+- Text and language.
+- Upscaling.
+- Interpolation.
+- Other tools.
+
+Model availability must be obtained from the connected backend or explicitly configured.
+
+Never fabricate installed model information.
+
+---
+
+# 22. SYSTEM MONITOR
+
+Create a system monitoring page.
+
+Display actual available information from connected services:
+
+- ComfyUI connection.
+- Backend status.
+- Job queue.
+- Current jobs.
+- Completed jobs.
+- Failed jobs.
+- Available models.
+- Generation errors.
+- Server response times.
+
+If the connected backend provides hardware diagnostics, display:
+
+- GPU name.
+- GPU memory.
+- GPU utilization.
+- CPU information.
+- System RAM.
+- Disk availability.
+
+If the information is unavailable, display "Not available" rather than fabricated values.
+
+Include connection diagnostics and helpful troubleshooting messages.
+
+---
+
+# 23. PROJECT DATA FORMAT AND PORTABILITY
+
+This requirement is extremely important.
+
+Every project must be portable.
+
+Create a structured project format that can be exported and imported independently of the Google AI Studio account used to develop the application.
+
+A project export should contain:
+
+- Project metadata.
+- Project configuration.
+- Asset manifest.
+- Character Bible.
+- Image analysis results.
+- Scene plans.
+- Prompt versions.
+- Workflow JSON files.
+- Generation metadata.
+- Generated clip references.
+- Music metadata.
+- Lyrics.
+- Timeline configuration.
+
+Do not assume large media assets can always be included in a single JSON file.
+
+Use a structured ZIP archive with a manifest.
+
+Validate imported projects before loading them.
+
+Preserve unknown future metadata fields where possible to support backward compatibility.
+
+---
+
+# 24. SECURITY AND RELIABILITY
+
+Implement:
+
+- Server-side secret management.
+- Input validation.
+- Safe file handling.
+- File-size restrictions.
+- Safe ZIP extraction.
+- API error handling.
+- Connection timeouts.
+- Job state recovery.
+- Duplicate request protection where appropriate.
+- Safe logging.
+- User-friendly errors.
+
+Do not expose Gemini API keys, backend credentials, or private tokens in frontend code.
+
+Do not automatically connect to arbitrary user-provided servers without appropriate validation and safeguards.
+
+Do not silently delete user assets.
+
+---
+
+# 25. MODULAR SOFTWARE ARCHITECTURE
+
+Organize the codebase into clearly separated modules.
+
+Suggested structure:
+
+src/
+  app/
+  components/
+    layout/
+    dashboard/
+    projects/
+    media/
+    characters/
+    scenes/
+    prompts/
+    generation/
+    timeline/
+    export/
+    workflows/
+    system/
+
+  modules/
+    project-management/
+    media-ingestion/
+    image-intelligence/
+    character-intelligence/
+    scene-planning/
+    prompt-engineering/
+    generation-engine/
+    quality-control/
+    music/
+    video-assembly/
+    persistence/
+
+  services/
+    api/
+    comfyui/
+    gemini/
+    vision/
+    media/
+    storage/
+
+  adapters/
+    comfyui/
+    ltx/
+    wan/
+
+  types/
+  hooks/
+  utils/
+  styles/
+
+server/
+  routes/
+  services/
+  adapters/
+  middleware/
+  config/
+
+docs/
+  architecture/
+  development/
+  handoff/
+
+The final structure may be adjusted based on the actual repository.
+
+Avoid creating unnecessary abstractions, but keep major subsystems independent.
+
+---
+
+# 26. DEVELOPMENT ROADMAP
+
+Implement the application in controlled phases.
+
+Do not attempt to implement the entire system in one enormous code-generation operation.
+
+## PHASE 0 — REPOSITORY DISCOVERY
+
+Inspect and document:
+
+- Existing repository.
+- ComfyUI architecture.
+- License.
+- API capabilities.
+- Integration possibilities.
+- Google AI Studio compatibility.
+- Recommended application structure.
+
+Deliver:
+
+docs/architecture/REPOSITORY_AUDIT.md
+
+docs/architecture/SYSTEM_ARCHITECTURE.md
+
+docs/architecture/TECHNOLOGY_DECISIONS.md
+
+## PHASE 1 — APPLICATION FOUNDATION
+
+Build:
+
+- Application shell.
+- Navigation.
+- Design system.
+- Dashboard.
+- Responsive layout.
+- Project management foundation.
+- Persistent application settings.
+
+## PHASE 2 — PROJECT AND MEDIA MANAGEMENT
+
+Build:
+
+- Project creation.
+- Project opening.
+- Project persistence.
+- Image upload.
+- ZIP ingestion.
+- Media library.
+- Asset metadata.
+
+## PHASE 3 — AI IMAGE INTELLIGENCE
+
+Build:
+
+- AI provider abstraction.
+- Image analysis.
+- Structured JSON results.
+- Analysis review interface.
+- Character identification foundation.
+
+## PHASE 4 — CHARACTER AND SCENE INTELLIGENCE
+
+Build:
+
+- Character Bible.
+- Character matching.
+- Character review.
+- Scene planning.
+- Storyboard.
+- Scene editing.
+
+## PHASE 5 — PROMPT STUDIO
+
+Build:
+
+- Positive and negative prompt management.
+- Prompt templates.
+- Engine-specific prompt configuration.
+- Prompt version history.
+
+## PHASE 6 — COMFYUI INTEGRATION
+
+Build:
+
+- ComfyUI connection configuration.
+- Connection diagnostics.
+- Workflow management.
+- Workflow validation.
+- Job submission.
+- Queue monitoring.
+- WebSocket updates.
+- Output retrieval.
+
+Verify the integration against a real ComfyUI server when available.
+
+If no backend is connected, provide a clearly labeled mock/test mode.
+
+## PHASE 7 — VIDEO GENERATION
+
+Build:
+
+- Engine adapter framework.
+- LTX configuration.
+- Wan configuration.
+- Generation interface.
+- Job history.
+- Clip version management.
+
+Verify actual generation only when a suitable backend and model are available.
+
+## PHASE 8 — QUALITY REVIEW
+
+Build:
+
+- Video preview.
+- Frame extraction.
+- Original/generated comparison.
+- Character consistency review.
+- Quality approval workflow.
+
+## PHASE 9 — MUSIC AND TIMELINE
+
+Build:
+
+- Audio ingestion.
+- Lyrics management.
+- Timeline foundation.
+- Scene arrangement.
+- Synchronization tools.
+
+## PHASE 10 — VIDEO ASSEMBLY
+
+Build:
+
+- Rendering service interface.
+- FFmpeg integration where supported.
+- Export configuration.
+- Final video export.
+
+## PHASE 11 — PORTABILITY AND ADVANCED FEATURES
+
+Build:
+
+- Complete project export.
+- Project import.
+- Workflow export.
+- Recovery mechanisms.
+- Advanced workflow access.
+- Final application polish.
+
+---
+
+# 27. AUTONOMOUS DEVELOPMENT RULES
+
+You are expected to make meaningful development progress without requiring the user to approve every minor implementation decision.
+
+Follow these rules:
+
+1. Inspect before modifying.
+2. Plan before implementing.
+3. Implement complete vertical slices.
+4. Test after implementation.
+5. Repair errors before proceeding.
+6. Preserve working functionality.
+7. Avoid unnecessary rewrites.
+8. Avoid introducing duplicate components.
+9. Keep dependencies controlled.
+10. Update documentation after significant architectural changes.
+11. Never claim untested functionality is operational.
+12. Never replace real functionality with decorative mock controls.
+13. Never silently discard user data.
+14. Keep the application runnable after every major phase.
+
+If a real backend is unavailable, implement the interface and integration abstraction, then clearly mark the integration as awaiting backend verification.
+
+Do not stop merely because an external GPU server is unavailable.
+
+---
+
+# 28. MULTI-ACCOUNT DEVELOPMENT CONTINUITY
+
+This project will be developed using multiple Google AI Studio accounts.
+
+The conversation history of one account will not necessarily be available to the next account.
+
+Therefore, the repository must function as the project's permanent memory.
+
+Create and maintain the following files:
+
+docs/development/PROJECT_STATE.md
+
+docs/development/IMPLEMENTATION_ROADMAP.md
+
+docs/development/CHANGELOG.md
+
+docs/development/KNOWN_ISSUES.md
+
+docs/development/ARCHITECTURE_DECISIONS.md
+
+docs/development/TEST_REPORT.md
+
+docs/development/DEVELOPMENT_LOG.md
+
+docs/handoff/NEXT_ACCOUNT_START_HERE.md
+
+docs/handoff/HANDOFF_MANIFEST.json
+
+docs/handoff/AGENT_INSTRUCTIONS.md
+
+Create an additional file:
+
+AGENTS.md
+
+This file must contain the permanent instructions for any future AI coding agent working on this repository.
+
+## PROJECT_STATE.md
+
+Must document:
+
+- Project purpose.
+- Current architecture.
+- Completed phases.
+- Current development phase.
+- Implemented features.
+- Incomplete features.
+- Known problems.
+- Current application state.
+- Next recommended task.
+
+## CHANGELOG.md
+
+Record important changes chronologically.
+
+Include:
+
+- Date.
+- Development phase.
+- Files created.
+- Files modified.
+- Features implemented.
+- Tests performed.
+- Test outcomes.
+
+## KNOWN_ISSUES.md
+
+Record unresolved problems.
+
+For each problem include:
+
+- Description.
+- Reproduction steps.
+- Affected files.
+- Severity.
+- Current investigation.
+- Recommended next action.
+
+## TEST_REPORT.md
+
+Distinguish:
+
+- Tests not performed.
+- Tests attempted.
+- Tests passed.
+- Tests failed.
+- Tests blocked by unavailable external services.
+
+Never report a test as passed unless it actually passed.
+
+## NEXT_ACCOUNT_START_HERE.md
+
+This is the most important handoff document.
+
+Every time the project is prepared for another Google account, update this file with:
+
+1. Project identity.
+2. Current project architecture.
+3. Current completed development phase.
+4. Most recently completed task.
+5. Current unfinished task.
+6. Exact files that were last modified.
+7. Known bugs.
+8. Last successful tests.
+9. Required next actions.
+10. Instructions for resuming development.
+
+The next AI agent must be able to continue without relying on the previous conversation.
+
+---
+
+# 29. HANDOFF AND QUOTA-SAFE DEVELOPMENT PROTOCOL
+
+The user may issue any of these commands:
+
+HANDOFF NOW
+
+PREPARE NEXT ACCOUNT
+
+SAVE DEVELOPMENT STATE
+
+EXPORT CONTINUATION PACKAGE
+
+When receiving one of these commands:
+
+STOP implementing new features.
+
+Immediately:
+
+1. Inspect the current codebase.
+2. Identify completed work.
+3. Identify unfinished work.
+4. Run available validation checks.
+5. Record any failing tests.
+6. Update all relevant documentation.
+7. Update PROJECT_STATE.md.
+8. Update CHANGELOG.md.
+9. Update KNOWN_ISSUES.md.
+10. Update TEST_REPORT.md.
+11. Write NEXT_ACCOUNT_START_HERE.md.
+12. Update HANDOFF_MANIFEST.json.
+13. Ensure all necessary source files are present.
+14. Ensure no critical configuration or dependency information is missing.
+15. Prepare the project for export.
+
+The handoff must preserve the exact state of development.
+
+Never remove unfinished code simply because it is incomplete.
+
+Never describe incomplete features as completed.
+
+If supported by the environment, prepare a downloadable ZIP containing:
+
+- Complete source code.
+- Required configuration templates.
+- Documentation.
+- Handoff instructions.
+- Project manifest.
+- Dependency files.
+
+Exclude:
+
+- node_modules.
+- Build caches.
+- Temporary files.
+- Large unnecessary generated assets.
+- Private credentials.
+- API keys.
+- Secrets.
+- Personal access tokens.
+
+Do not include secrets in the ZIP.
+
+If ZIP generation is unavailable inside the current environment, clearly instruct the user to use Google AI Studio's project download/export function.
+
+Do not claim an archive has been created unless it actually exists.
+
+---
+
+# 30. NEW ACCOUNT RESUMPTION PROTOCOL
+
+When a new Google AI Studio account imports this project, the first instruction may be:
+
+RESUME NEURAL SYMPHONY DEVELOPMENT.
+
+Upon receiving that instruction:
+
+1. Inspect the repository.
+2. Read AGENTS.md.
+3. Read docs/handoff/NEXT_ACCOUNT_START_HERE.md.
+4. Read docs/development/PROJECT_STATE.md.
+5. Read docs/development/IMPLEMENTATION_ROADMAP.md.
+6. Read docs/development/KNOWN_ISSUES.md.
+7. Read docs/development/TEST_REPORT.md.
+8. Inspect the relevant source files.
+9. Verify the actual implementation state.
+10. Identify the next unfinished task.
+
+Do not blindly trust the documentation if the source code contradicts it.
+
+Reconcile discrepancies between the source code and the handoff documents.
+
+Then continue from the next unfinished task.
+
+Do not rebuild completed features.
+
+Do not restart the project from scratch.
+
+Do not replace working architecture with a different architecture without a documented technical reason.
+
+Before making changes, briefly report:
+
+- What has already been completed.
+- What remains unfinished.
+- What you are going to implement next.
+
+Then begin implementation.
+
+---
+
+# 31. QUALITY REQUIREMENTS
+
+The final application must satisfy these principles:
+
+FUNCTIONALITY:
+Every major interface element must perform a meaningful action or be explicitly labeled as a placeholder.
+
+ARCHITECTURE:
+The application must be modular, maintainable, and extensible.
+
+DESIGN:
+The application must have a consistent, premium professional visual identity.
+
+RELIABILITY:
+Project data must not disappear during ordinary navigation or refresh.
+
+PORTABILITY:
+Projects must be exportable and importable.
+
+INTEGRATION:
+ComfyUI must be integrated through a properly designed adapter.
+
+EXTENSIBILITY:
+Additional generation engines must be addable without rewriting the entire application.
+
+HONESTY:
+The system must distinguish simulated demonstrations from real backend operations.
+
+CONTINUITY:
+Another AI development agent must be able to continue the project using repository documentation alone.
+
+---
+
+# 32. FIRST EXECUTION INSTRUCTIONS
+
+Begin immediately.
+
+Do not simply repeat this prompt or provide a theoretical implementation plan.
+
+Your first responsibility is to inspect the imported repository.
+
+Then:
+
+1. Produce the repository audit.
+2. Identify whether the current Google AI Studio project can support the intended application structure.
+3. Determine the safest integration architecture for ComfyUI.
+4. Establish the project documentation and multi-account handoff system.
+5. Implement Phase 1.
+6. Test Phase 1.
+7. Update the development documentation.
+8. Prepare a clear report of what has actually been completed.
+
+Do not attempt to implement all eleven phases in a single operation.
+
+After completing Phase 1, continue with the next phase when sufficient execution capacity remains.
+
+Work incrementally and preserve the ability to hand the project to another account at any point.
+
+---
+
+# FINAL DEVELOPMENT PRINCIPLE
+
+You are not building a demonstration dashboard.
+
+You are building a real, extensible AI creative production platform.
+
+The finished application should allow a creator to move from raw photographs to image understanding, character consistency, cinematic scene planning, AI video generation, music synchronization, and final video production through one coherent workspace.
+
+ComfyUI provides the underlying generation infrastructure.
+
+Neural Symphony Studio provides the intelligence, organization, creative experience, and production workflow.
+
+Build it carefully, test it honestly, document it completely, and preserve every meaningful development decision so that work can continue across multiple Google AI Studio accounts without starting over.
